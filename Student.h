@@ -25,9 +25,9 @@ public:
 
 private:
 	EE_Course* ee_course_;
-	int ee_count;
+	int ee_count_;
 	CS_Course* cs_course_;
-	int cs_count;
+	int cs_count_;
 };
 
 

@@ -23,8 +23,8 @@ public:
 	void resetStArray();
 
 private:
-	Student* students;
-	int student_count;
+	Student* students_;
+	int student_count_;
 
 };
 
