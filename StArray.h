@@ -5,10 +5,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-//#include "Person.h"
 #include "Proj.h"
-//#include "EE_Course.h"
-//#include "CS_Course.h"
 #include "Student.h"
 
 class StArray {
@@ -21,8 +18,8 @@ public:
 	bool setHwGrade(int student_id, int course_id, int hm_id, int hm_grade);
 	bool setExamGrade(int student_id, int course_id, int grade);
 	bool setFactor(int course_id, int factor);
-	bool printStudent(int student_id);
-	void printAll();
+	bool printStudent(int student_id) const;
+	void printAll() const;
 	void resetStArray();
 
 private:

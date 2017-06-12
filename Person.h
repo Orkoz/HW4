@@ -11,12 +11,12 @@ public:
 
 	Person(char *name, int id);
 	~Person();
-	int getID();
-	char* getName();
+	int getID() const;
+	char* getName() const;
 
 private:
-	char* name;
-	int id;
+	const char* name;
+	const int id;
 };
 
 

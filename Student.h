@@ -14,14 +14,14 @@ class Student : public Person {
 public:
 	Student();
 	~Student();
-	int getCourseCnt();
+	int getCourseCnt() const;
 	bool addEE_Course(EE_Course* new_course);
 	bool addCS_Course(CS_Course* new_course);
 	bool remCourse(int course_num);
 	EE_Course* getEE_Course(int course_num);
 	CS_Course* getCS_Course(int course_num);
-	int getAvg();
-	void print();
+	int getAvg() const;
+	void print() const;
 
 private:
 	EE_Course* ee_course_;
