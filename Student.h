@@ -24,9 +24,9 @@ public:
 	void print() const;
 
 private:
-	EE_Course* ee_course_;
+	EE_Course ee_course_[MAX_COURSE_NUM];
 	int ee_count_;
-	CS_Course* cs_course_;
+	CS_Course cs_course_[MAX_COURSE_NUM];
 	int cs_count_;
 };
 
