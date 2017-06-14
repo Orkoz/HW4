@@ -17,6 +17,8 @@ public:
     double getHwAverage() const;
     int getCourseGrade() const;
 
+	void printCourse() const;
+
     // Methods to change data
     bool setExamGrade(int exam_grade);
     bool setHwGrade(int hw_num, int hw_grade);

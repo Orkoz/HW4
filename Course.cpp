@@ -45,6 +45,12 @@ int Course::getCourseGrade() const {
     return round((1 - getHwWeigh()) * getExamGrade() + getHwWeigh() * (getHwAverage()));
 }
 
+void Course::printCourse() const
+{
+	int grade = getCourseGrade();
+	printf("%d %s: %d/n", num_, name_, grade);
+}
+
 bool Course::setExamGrade(int exam_grade) {
     if ((exam_grade >=0) && (exam_grade<=100)){
         examGrade_ = exam_grade;
