@@ -24,12 +24,12 @@ public:
     bool setHwGrade(int hw_num, int hw_grade);
 
 private:
-    int num_;
-    char* name_;
-    int num_of_hw_;
-    double hw_wight_;
-    int test_grade_;
-    int* hw_grade_;
-    int hw_sum_;
+    int courseNum_;
+    char* courseName_;
+    int hwNum_;
+    double hwWeigh_;
+    int examGrade_;
+    int* hwGrade_;
+    int hwSum_;
 };
 #endif //HW4_COURSE_H

@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
-#include <cmath>
 
 
 EE_Course::EE_Course(int stID, int courseNum, char* courseName,int hwNum, double hwWeigh)
@@ -14,7 +13,7 @@ EE_Course::EE_Course(int stID, int courseNum, char* courseName,int hwNum, double
 int EE_Course::getFactor() const { return factor_;};
 
 bool EE_Course::setFactor(int factor) {
-    if (factor.fail()){
+    if (factor){
         return false;
     }
 
@@ -23,8 +22,8 @@ bool EE_Course::setFactor(int factor) {
 }
 
 int EE_Course::getCourseGrade() const {
-    int course_grade = round((1-hw_weigh)*exam_grade + hw_weigh*hw_average) + factor;
-    return (course_grade>100 ? 100:course_grade);
+    int course_grade = (int)(round((1-getHwWeigh())*getExamGrade() + getHwWeigh()*getHwAverage()) + factor_);
+    return course_grade;
 }
 
 
