@@ -7,7 +7,7 @@
 #include <math.h>
 #include <ntdef.h>
 
-CS_Course::CS_Course(int stID, int courseNum, char *courseName, int hwNum, double hwWeigh, bool takef,
+CS_Course::CS_Course(int courseNum, char *courseName, int hwNum, double hwWeigh, bool takef,
                      char *bookName): Course(courseNum,courseName,hwNum,hwWeigh), takef_(takef){};
 
 bool CS_Course::isTakef() const {return takef_;}
