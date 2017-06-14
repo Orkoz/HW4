@@ -41,70 +41,116 @@ int Student::getCourseCnt() const
 }
 
 
-// needs to be changed to enter course in first free space!!!!
-//
-//
-//
 
 bool Student::addEE_Course(EE_Course* new_course)
 {
-	if (ee_course_[ee_count_] == NULL)
+	
+	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{
-		ee_course_[ee_count_] = new_course;
-		ee_count_++;
-		return true;
+		if (ee_course_[i] == NULL)
+		{
+			ee_course_[i] = new_course;
+			ee_count_++;
+			return true;
+		}
 	}
-	else
-	{
-		return false; //error
-	}
+
+	return false; //error
 }
 
 bool Student::addCS_Course(CS_Course* new_course) 
 {
-	if (cs_course_[cs_count_] == NULL)
+	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{
-		cs_course_[cs_count_] = new_course;
-		cs_count_++;
-		return true;
+		if (cs_course_[i] == NULL)
+		{
+			cs_course_[i] = new_course;
+			cs_count_++;
+			return true;
+		}
 	}
-	else
-	{
-		return false; //error
-	}
+	return false; //error
 }
 
 bool Student::remCourse(int course_num)
 {
-	void* course_to_remove = NULL;
-	course_to_remove = getEE_Course(course_num); // not sure this is how to write
-	if (course_to_remove == NULL)
-		course_to_remove = getCS_Course(course_num);
-	if (course_to_remove == NULL)
-		return false;
-	// needs to be changed so it is easy to decide which one to delete!
-	// and which counter to change
-	// maybe easier to divide to two functions
-	// or two if's
-	
-
+	for (int i = 0; i < MAX_COURSE_NUM; i++)
+	{
+		if (ee_course_[i] != NULL && ee_course_[i]->getNum() == course_num)
+		{
+			delete ee_course_[i];
+			ee_course_[i] = NULL;
+			ee_count_--;
+			return true;
+		}
+		else if (cs_course_[i] != NULL && cs_course_[i]->getNum() == course_num)
+		{
+			delete cs_course_[i];
+			cs_course_[i] = NULL;
+			cs_count_--;
+			return true;
+		}
+	}
+	return false;
 }
 
 EE_Course* Student::getEE_Course(int course_num)
 {
-
+	for (int i = 0; i < MAX_COURSE_NUM; i++)
+	{
+		if (ee_course_[i] != NULL && ee_course_[i]->getNum() == course_num)
+		{
+			return ee_course_[i];
+		}
+	}
+	return NULL;
 }
 
 CS_Course* Student::getCS_Course(int course_num)
 {
-
+	for (int i = 0; i < MAX_COURSE_NUM; i++)
+	{
+		if (cs_course_[i] != NULL && cs_course_[i]->getNum() == course_num)
+		{
+			return cs_course_[i];
+		}
+	}
+	return NULL;
 }
+
 int Student::getAvg() const
 {
+	int count = getCourseCnt();
+	int sum = 0;
+
+	for (int i = 0; i < MAX_COURSE_NUM; i++)
+	{
+		if (ee_course_[i] != NULL)
+		{
+			sum = sum + ee_course_[i]->getExamGrade();
+		}
+
+		if (cs_course_[i] != NULL)
+		{
+			sum = sum + cs_course_[i]->getExamGrade();
+		}
+	}
+
+	int avg = (int)((sum / count) + 0.5);
+	return avg;
 
 }
 void Student::print() const
 {
+	printf("Student Name: %s/n", );
+	printf("Student ID: %d/n", );
+	printf("Average Grade: %d/n", );
+	printf("/n");
+	printf("EE Courses:/n");
 
+	printf("/n");
+	printf("CS Courses:/n");
+
+	printf("/n");
 }
 
