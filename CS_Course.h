@@ -4,18 +4,16 @@
 
 class  CS_Course: public Course{
 public:
-    CS_Course(bool hw_takef_flag, char* course_book);
-    ~CS_Course();
+    CS_Course(int stID, int courseNum, char* courseName, int hwNum, double  hwWeigh, bool takef, char* bookName);
     bool isTakef() const;
-    int getBook() const;
+    char* getBook() const;
     bool setTakef(bool flag);
     void setBook(char* book_name);
     int getCourseGrade() const;
 
 private:
-
-    bool hw_takef_flag_;
-    char* course_book_;
+    bool takef_;
+    char* bookName_;
 
 };
 #endif //HW4_CS_COURSE_H
