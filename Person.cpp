@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string.h>
 #include "Person.h"
+#include "Proj.h"
 
 Person::Person(char *name, int id):id_(id)
 {

@@ -7,7 +7,7 @@
 #include <math.h>
 
 
-EE_Course::EE_Course(int stID, int courseNum, char* courseName,int hwNum, double hwWeigh)
+EE_Course::EE_Course(int courseNum, char* courseName,int hwNum, double hwWeigh)
         :Course(courseNum,courseName,hwNum,hwWeigh), factor_(0){};
 
 int EE_Course::getFactor() const { return factor_;};

@@ -12,7 +12,7 @@
 
 class Student : public Person {
 public:
-	Student();
+	Student(char *name, int id) : Person(name, id);
 	~Student();
 	int getCourseCnt() const;
 	bool addEE_Course(EE_Course* new_course);
