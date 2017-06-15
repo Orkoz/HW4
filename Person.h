@@ -15,7 +15,7 @@ public:
 	char* getName() const;
 
 private:
-	const char* name_;
+    char* name_;
 	const int id_;
 };
 
