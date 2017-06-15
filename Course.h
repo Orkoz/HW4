@@ -15,7 +15,7 @@ public:
     int getHwNum() const;
     double getHwWeigh() const;
     double getHwAverage() const;
-    int getCourseGrade() const;
+    virtual int getCourseGrade() const;
 
 	void printCourse() const;
 
