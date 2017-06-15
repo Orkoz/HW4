@@ -47,7 +47,7 @@ int Course::getCourseGrade() const {
 void Course::printCourse() const
 {
 	int grade = getCourseGrade();
-	printf("%d %s: %d/n", courseNum_, courseName_, grade);
+	printf("%d %s: %d\n", courseNum_, courseName_, grade);
 }
 
 bool Course::setExamGrade(int exam_grade) {

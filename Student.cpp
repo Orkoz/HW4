@@ -142,24 +142,24 @@ int Student::getAvg() const
 }
 void Student::print() const
 {
-	printf("Student Name: %s/n", getName());
-	printf("Student ID: %d/n", getID());
+	printf("Student Name: %s\n", getName());
+	printf("Student ID: %d\n", getID());
 	int avg = getAvg();
-	printf("Average Grade: %d/n", avg);
-	printf("/n");
-	printf("EE Courses:/n");
+	printf("Average Grade: %d\n", avg);
+	printf("\n");
+	printf("EE Courses:\n");
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{
 		if (ee_course_[i] != NULL)
 			ee_course_[i]->printCourse();
 	}
-	printf("/n");
-	printf("CS Courses:/n");
+	printf("\n");
+	printf("CS Courses:\n");
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{
 		if (cs_course_[i] != NULL)
 			cs_course_[i]->printCourse();
 	}
-	printf("/n");
+	printf("\n");
 }
 
