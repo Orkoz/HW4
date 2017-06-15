@@ -31,10 +31,12 @@ void CS_Course::setBook(char *book_name) {
 
 int CS_Course::getCourseGrade() const{
     if (takef_){
-        return int(round((1-getHwWeigh())*getExamGrade() + getHwWeigh()*getHwAverage()));
+        //return int(round((1-getHwWeigh())*getExamGrade() + getHwWeigh()*getHwAverage()));
+		return (int)((1 - getHwWeigh()*getExamGrade() + getHwWeigh()*getHwAverage())+0.5);
     }
 
-    int course_grade1 = (int)(round((1-getHwWeigh())*getExamGrade() + getHwWeigh()*getHwAverage()));
+    //int course_grade1 = (int)(round((1-getHwWeigh())*getExamGrade() + getHwWeigh()*getHwAverage()));
+	int course_grade1 = (int)((1 - getHwWeigh()*getExamGrade() + getHwWeigh()*getHwAverage())+0.5);
     int course_grade2= getExamGrade();
 
     return (course_grade1>course_grade2 ? course_grade1:course_grade2);
