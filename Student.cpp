@@ -6,7 +6,7 @@
 #include "Proj.h"
 
 
-Student::Student(char *name, int id) :ee_count_(0), cs_count_(0), Person(name, id)
+Student::Student(char *name, int id) :Person(name, id), ee_count_(0), cs_count_(0)
 {
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{

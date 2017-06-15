@@ -23,7 +23,7 @@ public:
 	void resetStArray();
 
 private:
-	Student students_[MAX_STUDENT_NUM];
+	Student* students_[MAX_STUDENT_NUM];
 	int student_count_;
 
 };
