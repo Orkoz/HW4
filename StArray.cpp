@@ -35,7 +35,7 @@ bool StArray::addStudent(int id, char * name)
 	{
 		if (students_[i] == NULL)
 		{
-			students_[i] = new Student(char *name, int id);
+			students_[i] = new Student(name, id);
 			student_count_++;
 			return true;
 		}
@@ -49,7 +49,7 @@ bool StArray::addEE_Course(int student_id, int course_id, char * course_name, in
 	// not sure if we need to chk if id's already exists
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
 	{
-		if (students_[i] != NULL && students_[i].getId() == student_id)
+		if (students_[i] != NULL && students_[i]->getID() == student_id)
 		{
 			char* name_copy = new char[strlen(course_name) + 1];
 			strcpy(name_copy, course_name);
@@ -58,7 +58,7 @@ bool StArray::addEE_Course(int student_id, int course_id, char * course_name, in
 			
 			delete name_copy;
 
-			return students_[i].addEE_Course(new_course);
+			return students_[i]->addEE_Course(new_course);
 		}
 	}
 	return false;
@@ -68,7 +68,7 @@ bool StArray::addCS_Course(int student_id, int course_id, char * course_name, in
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
 	{
-		if (students_[i] != NULL && students_[i].getId() == student_id)
+		if (students_[i] != NULL && students_[i]->getID() == student_id)
 		{
 			char* name_copy = new char[strlen(course_name) + 1];
 			strcpy(name_copy, course_name);
@@ -81,7 +81,7 @@ bool StArray::addCS_Course(int student_id, int course_id, char * course_name, in
 			delete name_copy;
 			delete book_copy;
 
-			return students_[i].addCS_Course(new_course);
+			return students_[i]->addCS_Course(new_course);
 		}
 	}
 	return false;
@@ -91,16 +91,16 @@ bool StArray::setHwGrade(int student_id, int course_id, int hm_id, int hm_grade)
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
 	{
-		if (students_[i] != NULL && students_[i].getID() == student_id)
+		if (students_[i] != NULL && students_[i]->getID() == student_id)
 		{
-			EE_Course* ee_course = students_[i].getEE_Course(course_id);
-			CS_Course* cs_course = students_[i].getCS_Course(course_id);
+			EE_Course* ee_course = students_[i]->getEE_Course(course_id);
+			CS_Course* cs_course = students_[i]->getCS_Course(course_id);
 			if (ee_course != NULL)
 			{
-				return ee_course.setHwGrade(hm_id, hm_grade);
+				return ee_course->setHwGrade(hm_id, hm_grade);
 			} else if (cs_course != NULL)
 			{
-				return cs_course.setHwGrade(hm_id, hm_grade);
+				return cs_course->setHwGrade(hm_id, hm_grade);
 			}
 			else
 			{
@@ -115,17 +115,17 @@ bool StArray::setExamGrade(int student_id, int course_id, int grade)
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
 	{
-		if (students_[i] != NULL && students_[i].getID() == student_id)
+		if (students_[i] != NULL && students_[i]->getID() == student_id)
 		{
-			EE_Course* ee_course = students_[i].getEE_Course(course_id);
-			CS_Course* cs_course = students_[i].getCS_Course(course_id);
+			EE_Course* ee_course = students_[i]->getEE_Course(course_id);
+			CS_Course* cs_course = students_[i]->getCS_Course(course_id);
 			if (ee_course != NULL)
 			{
-				return ee_course.setExamGrade(grade);
+				return ee_course->setExamGrade(grade);
 			}
 			else if (cs_course != NULL)
 			{
-				return cs_course.setExamGrade(grade);
+				return cs_course->setExamGrade(grade);
 			}
 			else
 			{
@@ -142,10 +142,10 @@ bool StArray::setFactor(int course_id, int factor)
 	{
 		if (students_[i] != NULL)
 		{
-			EE_Course* ee_course = students_[i].getEE_Course(course_id);
+			EE_Course* ee_course = students_[i]->getEE_Course(course_id);
 			if (ee_course != NULL)
 			{
-				if (!(ee_course.setFactor(factor)))
+				if (!(ee_course->setFactor(factor)))
 					return false;
 			}
 		}
@@ -157,9 +157,9 @@ bool StArray::printStudent(int student_id) const
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
 	{
-		if (students_[i] != NULL && students_[i].getID() == student_id)
+		if (students_[i] != NULL && students_[i]->getID() == student_id)
 		{
-			students_[i].print();
+			students_[i]->print();
 			return true;
 		}
 	}
@@ -172,7 +172,7 @@ void StArray::printAll() const
 	{
 		if (students_[i] != NULL)
 		{
-			students_[i].print();
+			students_[i]->print();
 		}
 	}
 }

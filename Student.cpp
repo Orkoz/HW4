@@ -6,7 +6,7 @@
 #include "Proj.h"
 
 
-Student::Student(char *name, int id) :ee_count_(0), cs_count_(0), Person(name, id)
+Student::Student(char *name, int id) :Person(name, id), ee_count_(0), cs_count_(0)
 {
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{
@@ -142,8 +142,8 @@ int Student::getAvg() const
 }
 void Student::print() const
 {
-	printf("Student Name: %s/n", name_);
-	printf("Student ID: %d/n", id_);
+	printf("Student Name: %s/n", getName());
+	printf("Student ID: %d/n", getID());
 	int avg = getAvg();
 	printf("Average Grade: %d/n", avg);
 	printf("/n");
