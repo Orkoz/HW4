@@ -142,8 +142,8 @@ int Student::getAvg() const
 }
 void Student::print() const
 {
-	printf("Student Name: %s/n", name_);
-	printf("Student ID: %d/n", id_);
+	printf("Student Name: %s/n", getName());
+	printf("Student ID: %d/n", getID());
 	int avg = getAvg();
 	printf("Average Grade: %d/n", avg);
 	printf("/n");
