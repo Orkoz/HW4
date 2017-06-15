@@ -102,10 +102,6 @@ bool StArray::setHwGrade(int student_id, int course_id, int hm_id, int hm_grade)
 			{
 				return cs_course->setHwGrade(hm_id, hm_grade);
 			}
-			else
-			{
-				return false;
-			}
 		}
 	}
 	return false;
