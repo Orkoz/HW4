@@ -20,7 +20,5 @@ int Person::getID() const
 }
 char* Person::getName() const
 {
-	char* name_cpy = new char[strlen(name_) + 1];
-	strcpy(name_cpy, name_);
-	return name_cpy;
+	return name_;
 }
