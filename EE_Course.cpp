@@ -8,7 +8,10 @@
 
 
 EE_Course::EE_Course(int courseNum, char* courseName,int hwNum, double hwWeigh)
-        :Course(courseNum,courseName,hwNum,hwWeigh), factor_(0){};
+        :Course(courseNum,courseName,hwNum,hwWeigh), factor_(0){}
+
+EE_Course::~EE_Course(){}
+
 
 int EE_Course::getFactor() const { return factor_;};
 

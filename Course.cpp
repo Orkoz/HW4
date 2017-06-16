@@ -10,8 +10,8 @@ Course::Course(int courseNum, char* courseName,int hwNum, double hwWeigh):
         courseNum_(courseNum), hwNum_(hwNum), hwWeigh_(hwWeigh),hwSum_(0), examGrade_(0){
     courseName_ = new char[strlen(courseName)+1];
     strcpy(courseName_,courseName);
-    hwGrade_ = new int[hwNum_];
-    for (int i = 0; i < hwNum_+1; i++) {
+    hwGrade_ = new int[hwNum];
+    for (int i = 0; i < hwNum +1; i++) {
         hwGrade_[i] = 0;
     }
 }
@@ -54,7 +54,7 @@ int Course::getCourseGrade() const {
 
 void Course::printCourse() const
 {
-	int grade = getCourseGrade(); // problem is here!!!!!!!!!!!
+	int grade = getCourseGrade(); 
 	printf("%d %s: %d\n", courseNum_, courseName_, grade);
 }
 
@@ -69,7 +69,8 @@ bool Course::setExamGrade(int exam_grade) {
 bool Course::setHwGrade(int hwNum, int hw_grade) {
     if ((hwNum>=0 && hwNum<=hwNum_) && ((hw_grade >=0) && (hw_grade<=100))){
         //hwSum_ = hwSum_ - hwGrade_[hwNum_]; // What is this line?
-        hwGrade_[hwNum_] = hw_grade; // unclear whats going on
+        //hwGrade_[hwNum_] = hw_grade; // unclear whats going on
+		hwGrade_[hwNum] = hw_grade;
         hwSum_ = hwSum_ + hw_grade;
         return true;
     }
