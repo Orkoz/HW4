@@ -10,6 +10,14 @@
 #include "CS_Course.h"
 #include "EE_Course.h"
 
+//*************************************************************************
+//* Function name: StArray (constructor)
+//* Description: creates a the students_ array to hold pointers to every
+//*              student.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
+
 StArray::StArray():student_count_(0)
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
@@ -17,6 +25,13 @@ StArray::StArray():student_count_(0)
 		students_[i] = NULL;
 	}
 }
+
+//*************************************************************************
+//* Function name: ~StArray (destructor)
+//* Description: calls the destructor for every student in the array.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
 
 StArray::~StArray()
 {
@@ -28,6 +43,15 @@ StArray::~StArray()
 		}
 	}
 }
+
+//*************************************************************************
+//* Function name: addStudent
+//* Description: creates a new student ADT and adds it to students array.
+//* Parameters:
+//*              int id - passes id to student constructor
+//*              char * name - passes name to student constructor
+//* Return Value: true if succeeds or false if not.
+//*************************************************************************
 
 bool StArray::addStudent(int id, char * name)
 {
@@ -43,6 +67,18 @@ bool StArray::addStudent(int id, char * name)
 	
 	return false;
 }
+
+//*************************************************************************
+//* Function name: addEE_Course
+//* Description: creates a new EE course ADT, and adds it to student.
+//* Parameters:
+//*              int student_id - id of student to add course to
+//*              int course_id - id of course
+//*              char * course_name - course name string
+//*              int hm_count - how many homework assigments in the course
+//*              double hm_weight - weight of HM from total grade.
+//* Return Value: true if succeeds or false if not.
+//*************************************************************************
 
 bool StArray::addEE_Course(int student_id, int course_id, char * course_name, int hm_count, double hm_weight)
 {
@@ -63,6 +99,20 @@ bool StArray::addEE_Course(int student_id, int course_id, char * course_name, in
 	}
 	return false;
 }
+
+//*************************************************************************
+//* Function name: addCS_Course
+//* Description: creates a new CS course ADT, and adds it to student.
+//* Parameters:
+//*              int student_id - id of student to add course to
+//*              int course_id - id of course
+//*              char * course_name - course name string
+//*              int hm_count - how many homework assigments in the course
+//*              double hm_weight - weight of HM from total grade.
+//*              bool takef - false if hw are not takef and true otherwise
+//*              char * book - book of the course name string
+//* Return Value: true if succeeds or false if not.
+//*************************************************************************
 
 bool StArray::addCS_Course(int student_id, int course_id, char * course_name, int hm_count, double hm_weight, bool takef, char * book)
 {
@@ -87,6 +137,17 @@ bool StArray::addCS_Course(int student_id, int course_id, char * course_name, in
 	return false;
 }
 
+//*************************************************************************
+//* Function name: setHwGrade
+//* Description: sets a specific grade for an homework assignment.
+//* Parameters:
+//*              int student_id - id of student to add course to
+//*              int course_id - id of course
+//*              int hm_id - id of the homework assignment
+//*              int hm_grade - grade of specific assignment
+//* Return Value: true if succeeds or false if not.
+//*************************************************************************
+
 bool StArray::setHwGrade(int student_id, int course_id, int hm_id, int hm_grade)
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
@@ -106,6 +167,16 @@ bool StArray::setHwGrade(int student_id, int course_id, int hm_id, int hm_grade)
 	}
 	return false;
 }
+
+//*************************************************************************
+//* Function name: setExamGrade
+//* Description: sets a specific grade for a test.
+//* Parameters:
+//*              int student_id - id of student to add course to
+//*              int course_id - id of course
+//*              int grade- grade of test
+//* Return Value: true if succeeds or false if not.
+//*************************************************************************
 
 bool StArray::setExamGrade(int student_id, int course_id, int grade)
 {
@@ -132,6 +203,15 @@ bool StArray::setExamGrade(int student_id, int course_id, int grade)
 	return false;
 }
 
+//*************************************************************************
+//* Function name: setFactor
+//* Description: sets a Factor to EE course for all students that took course
+//* Parameters:
+//*              int course_id - id of course
+//*              int factor - factor of test
+//* Return Value: true if succeeds or false if not EE course, or not found.
+//*************************************************************************
+
 bool StArray::setFactor(int course_id, int factor)
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
@@ -149,6 +229,14 @@ bool StArray::setFactor(int course_id, int factor)
 	return true;
 }
 
+//*************************************************************************
+//* Function name: printStudent
+//* Description: prints the data of a students using the print from class student
+//* Parameters:
+//*              int student_id - id of student
+//* Return Value: true if succeeds or false if cant find student.
+//*************************************************************************
+
 bool StArray::printStudent(int student_id) const
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
@@ -162,6 +250,14 @@ bool StArray::printStudent(int student_id) const
 	return false;
 }
 
+//*************************************************************************
+//* Function name: printAll
+//* Description: goes through all students and prints them using print from
+//*              class student.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
+
 void StArray::printAll() const
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
@@ -173,6 +269,13 @@ void StArray::printAll() const
 	}
 }
 
+//*************************************************************************
+//* Function name: resetStArray
+//* Description: goes through all students and removes them from memory.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
+
 void StArray::resetStArray()
 {
 	for (int i = 0; i < MAX_STUDENT_NUM; i++)
@@ -183,5 +286,5 @@ void StArray::resetStArray()
 			student_count_--;
 			students_[i] = NULL;
 		}
-	} /////////////////////////////// who is using remCourse??? from Student
+	}
 }
