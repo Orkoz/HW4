@@ -5,6 +5,7 @@
 class  CS_Course: public Course{
 public:
     CS_Course(int courseNum, char* courseName, int hwNum, double  hwWeigh, bool takef, char* bookName);
+	~CS_Course();
     bool isTakef() const;
     char* getBook() const;
     bool setTakef(bool flag);

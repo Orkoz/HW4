@@ -153,17 +153,17 @@ int Student::getAvg() const
 	{
 		if (ee_course_[i] != NULL)
 		{
-			sum = sum + ee_course_[i]->getExamGrade();
+			sum = sum + ee_course_[i]->getCourseGrade();
 		}
 
 		if (cs_course_[i] != NULL)
 		{
-			sum = sum + cs_course_[i]->getExamGrade();
+			sum = sum + cs_course_[i]->getCourseGrade();
 		}
 	}
 
 
-	int avg = (int) round(((sum / count)));
+	int avg = (int) (((double) sum / (double) count)+0.5);
 	return avg;
 
 }

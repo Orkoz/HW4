@@ -1,5 +1,7 @@
 #ifndef HW4_COURSE_H
 #define HW4_COURSE_H
+#include "Proj.h"
+
 class Course{
 
 public:
@@ -15,7 +17,7 @@ public:
     int getHwNum() const;
     double getHwWeigh() const;
     double getHwAverage() const;
-    int getCourseGrade() const;
+    virtual int getCourseGrade() const;
 
 	void printCourse() const;
 
