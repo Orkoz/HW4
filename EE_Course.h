@@ -7,6 +7,7 @@ class EE_Course: public Course{
 
 public:
     EE_Course(int courseNum, char* courseName,int hwNum, double hwWeigh);
+	~EE_Course();
     int getFactor() const;
     bool setFactor(int factor);
     int getCourseGrade() const;
