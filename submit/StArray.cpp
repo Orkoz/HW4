@@ -92,7 +92,7 @@ bool StArray::addEE_Course(int student_id, int course_id, char * course_name, in
 
 			EE_Course* new_course = new EE_Course(course_id, name_copy, hm_count, hm_weight);
 			
-			delete name_copy;
+			delete [] name_copy;
 
 			return students_[i]->addEE_Course(new_course);
 		}
@@ -128,8 +128,8 @@ bool StArray::addCS_Course(int student_id, int course_id, char * course_name, in
 
 			CS_Course* new_course = new CS_Course(course_id, name_copy, hm_count, hm_weight, takef, book_copy);
 
-			delete name_copy;
-			delete book_copy;
+			delete [] name_copy;
+			delete [] book_copy;
 
 			return students_[i]->addCS_Course(new_course);
 		}
