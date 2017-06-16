@@ -11,14 +11,14 @@ Course::Course(int courseNum, char* courseName,int hwNum, double hwWeigh):
     courseName_ = new char[strlen(courseName)+1];
     strcpy(courseName_,courseName);
     hwGrade_ = new int[hwNum];
-    for (int i = 0; i < hwNum +1; i++) {
+    for (int i = 0; i < hwNum; i++) {
         hwGrade_[i] = 0;
     }
 }
 
 Course::~Course() {
-    delete [] courseName_;
-    delete  [] hwGrade_;
+    delete[] courseName_;
+    delete[] hwGrade_;
 }
 
 int Course::getNum() const {return courseNum_; }
@@ -70,6 +70,7 @@ bool Course::setHwGrade(int hwNum, int hw_grade) {
     if ((hwNum>=0 && hwNum<=hwNum_) && ((hw_grade >=0) && (hw_grade<=100))){
         //hwSum_ = hwSum_ - hwGrade_[hwNum_]; // What is this line?
         //hwGrade_[hwNum_] = hw_grade; // unclear whats going on
+		hwSum_ = hwSum_ - hwGrade_[hwNum];
 		hwGrade_[hwNum] = hw_grade;
         hwSum_ = hwSum_ + hw_grade;
         return true;
