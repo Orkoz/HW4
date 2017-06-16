@@ -49,13 +49,13 @@ bool Student::addEE_Course(EE_Course* new_course)
     bool first_index_found = false;
     for (int i = 0; i < MAX_COURSE_NUM; i++)
     {
-        if (ee_course_[i] == NULL and !first_index_found)
+        if (ee_course_[i] == NULL && !first_index_found)
         {
             course_index = i;
             first_index_found = true;
 
         }
-        if (ee_course_[i] != NULL and ee_course_[i]->getNum() == new_course->getNum()){
+        if (ee_course_[i] != NULL && ee_course_[i]->getNum() == new_course->getNum()){
             return false;
         }
 
@@ -75,13 +75,13 @@ bool Student::addCS_Course(CS_Course* new_course)
     bool first_index_found = false;
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
 	{
-		if (cs_course_[i] == NULL and !first_index_found)
+		if (cs_course_[i] == NULL && !first_index_found)
 		{
             course_index = i;
             first_index_found = true;
 
 		}
-        if (cs_course_[i] != NULL and cs_course_[i]->getNum() == new_course->getNum()){
+        if (cs_course_[i] != NULL && cs_course_[i]->getNum() == new_course->getNum()){
             return false;
         }
 
