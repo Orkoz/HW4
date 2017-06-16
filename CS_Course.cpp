@@ -8,7 +8,16 @@
 //#include <ntdef.h>
 
 CS_Course::CS_Course(int courseNum, char *courseName, int hwNum, double hwWeigh, bool takef,
-                     char *bookName): Course(courseNum,courseName,hwNum,hwWeigh), takef_(takef){};
+                     char *bookName): Course(courseNum,courseName,hwNum,hwWeigh), takef_(takef)
+{
+	bookName_ = new char[strlen(bookName) + 1];
+	strcpy(bookName_, bookName);
+}
+
+CS_Course::~CS_Course()
+{
+	delete[] bookName_;
+}
 
 bool CS_Course::isTakef() const {return takef_;}
 

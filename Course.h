@@ -1,5 +1,7 @@
 #ifndef HW4_COURSE_H
 #define HW4_COURSE_H
+#include "Proj.h"
+
 class Course{
 
 public:
