@@ -6,6 +6,14 @@
 #include "Proj.h"
 #include <math.h>
 
+//*************************************************************************
+//* Function name: Student (constructor)
+//* Description: creates a Student ADT according to the given parameters
+//*              and sends them to person constructor. Creates arrays
+//*              for CS and EE courses.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
 
 Student::Student(char *name, int id) :Person(name, id), ee_count_(0), cs_count_(0)
 {
@@ -16,7 +24,12 @@ Student::Student(char *name, int id) :Person(name, id), ee_count_(0), cs_count_(
 	}
 }
 
-// We need to define and create the array for ee_course_ and cs_course_
+//*************************************************************************
+//* Function name: Student (destructor)
+//* Description: deletes all of the courses one by one.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
 
 Student::~Student()
 {
@@ -36,12 +49,26 @@ Student::~Student()
 	}
 }
 
+//*************************************************************************
+//* Function name: getCourseCnt
+//* Description: returns the total amount of courses
+//* Parameters:
+//* Return Value: int with total amount of courses.
+//*************************************************************************
+
 int Student::getCourseCnt() const
 {
 	return (ee_count_ + cs_count_);
 }
 
-
+//*************************************************************************
+//* Function name: addEE_Course
+//* Description: gets a new_course pointing to EE course and adds it to the
+//*              first free place in the array.
+//* Parameters:
+//*              EE_Course* new_course - pointer to new course.
+//* Return Value: true if succeeds, false if not.
+//*************************************************************************
 
 bool Student::addEE_Course(EE_Course* new_course)
 {
@@ -69,6 +96,15 @@ bool Student::addEE_Course(EE_Course* new_course)
     return false; //error
 }
 
+//*************************************************************************
+//* Function name: addCS_Course
+//* Description: gets a new_course pointing to CS course and adds it to the
+//*              first free place in the array.
+//* Parameters:
+//*              EE_Course* new_course - pointer to new course.
+//* Return Value: true if succeeds, false if not.
+//*************************************************************************
+
 bool Student::addCS_Course(CS_Course* new_course) 
 {
     int course_index = 0;
@@ -95,6 +131,14 @@ bool Student::addCS_Course(CS_Course* new_course)
 	return false; //error
 }
 
+//*************************************************************************
+//* Function name: remCourse
+//* Description: searches for the course_num and deletes it from the array
+//* Parameters:
+//*             int course_num - course id to delete.
+//* Return Value: true if succeeds, false if not.
+//*************************************************************************
+
 bool Student::remCourse(int course_num)
 {
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
@@ -117,6 +161,15 @@ bool Student::remCourse(int course_num)
 	return false;
 }
 
+//*************************************************************************
+//* Function name: getEE_Course
+//* Description: searches for the course_num and returns a pointer to it, 
+//*              only if it is a EE course.
+//* Parameters:
+//*             int course_num - course id to delete.
+//* Return Value: pointer to course
+//*************************************************************************
+
 EE_Course* Student::getEE_Course(int course_num)
 {
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
@@ -129,6 +182,15 @@ EE_Course* Student::getEE_Course(int course_num)
 	return NULL;
 }
 
+//*************************************************************************
+//* Function name: getCS_Course
+//* Description: searches for the course_num and returns a pointer to it, 
+//*              only if it is a CS course.
+//* Parameters:
+//*             int course_num - course id to delete.
+//* Return Value: pointer to course
+//*************************************************************************
+
 CS_Course* Student::getCS_Course(int course_num)
 {
 	for (int i = 0; i < MAX_COURSE_NUM; i++)
@@ -140,6 +202,13 @@ CS_Course* Student::getCS_Course(int course_num)
 	}
 	return NULL;
 }
+
+//*************************************************************************
+//* Function name: getAvg
+//* Description: calculates the average of a students and returns it.
+//* Parameters:
+//* Return Value: avg as an int.
+//*************************************************************************
 
 int Student::getAvg() const
 {
@@ -167,6 +236,13 @@ int Student::getAvg() const
 	return avg;
 
 }
+//*************************************************************************
+//* Function name: print
+//* Description: prints the student info.
+//* Parameters:
+//* Return Value: none.
+//*************************************************************************
+
 void Student::print() const
 {
 	printf("Student Name: %s\n", getName());
