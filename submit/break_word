@@ -1,0 +1,10 @@
+############################################################################################################
+# Script name: break_word
+# Description: The script prints the letters of the input string.
+# Parameters: - a string
+# Return value: print the letters – one in each row
+############################################################################################################
+
+#! /bin/bash
+
+echo "$1" | grep -o .
